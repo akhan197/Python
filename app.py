@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Flask app is running!"
+    return "Server is running!"
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 0))  # Default to dynamic port

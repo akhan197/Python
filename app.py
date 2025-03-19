@@ -128,9 +128,8 @@ def webhook():
         logging.error(f"Error processing webhook: {e}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
-
 import os
-
-port = int(os.getenv("PORT", 5000))  # Use Railway's assigned port or default to 5000
+port = int(os.environ.get("PORT", 5000))  # Default to 5000 if PORT is not set
+print(f"Starting Flask on port {port}")
 app.run(host="0.0.0.0", port=port)
 

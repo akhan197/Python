@@ -129,7 +129,12 @@ def webhook():
         return jsonify({"status": "error", "message": str(e)}), 500
 
 import os
-port = int(os.environ.get("PORT", 5000))  # Default to 5000 if PORT is not set
-print(f"Starting Flask on port {port}")
+
+public_domain = os.getenv("RAILWAY_PUBLIC_DOMAIN", "localhost")
+port = int(os.getenv("PORT", 5000))  # Default to 5000 if PORT is not set
+
+print(f"Starting Flask on {public_domain} at port {port}")
+
 app.run(host="0.0.0.0", port=port)
+
 
